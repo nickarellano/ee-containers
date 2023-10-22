@@ -10,6 +10,6 @@
 Container | image | Latest Tags
 ---|---|---
 {% for environment in environments | sort(attribute="name") -%}
-[{{ environment.name }}]( https://ghcr.io/nickarellano/{{ environment.name }} ) | ghcr.io/nickarellano/{{ environment.name }} | {{ environment.tag }}
+[{{ environment.name }}]( https://ghcr.io/nickarellano/ee-{{ environment.name }} ) | ghcr.io/nickarellano/ee-{{ environment.name }} | {{ environment.tag }}
 {% endfor %}
 </div>
