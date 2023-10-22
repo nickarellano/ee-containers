@@ -1,7 +1,7 @@
 <div align="center">
     <h1>Execution Environments</h1>
     <strong>
-    An suite of Ansible execution environments, utilized for demonstration and testing purposes
+    A suite of Ansible execution environments, utilized for demonstration and testing purposes
     </strong><br><br>
 </div>
 <hr>
