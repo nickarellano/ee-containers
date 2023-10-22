@@ -1,0 +1,29 @@
+---
+name: "Release execution environments"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/scripts/templates/**"
+      - "environments/**"
+
+jobs:
+  get-changes:
+    uses: ./.github/workflows/get-changes.yaml
+
+  build-images:
+    needs: [get-changes]
+    if: ${{ needs.get-changes.outputs.addedOrModified == 'true' }}
+    uses: ./.github/workflows/build-images.yaml
+    secrets: inherit
+    with:
+      environments: "${{ needs.get-changes.outputs.addedOrModifiedImages }}"
+
+  # render-readme:
+  #   name: "Render README.md"
+  #   needs: [build-images]
+  #   if: ${{ always() && needs.build-images.result != 'failure' }}}
+  #   uses: ./.github/workflows/render-readme.yaml
+  #   secrets: inherit

@@ -1,0 +1,79 @@
+---
+name: "Build execution environments"
+
+on:
+  workflow_call:
+    secrets:
+      REDHAT_REGISTRY_USERNAME:
+        description: "Username to access the Red Hat registry"
+        required: true
+      REDHAT_REGISTRY_PASSWORD:
+        description: "Password to access the Red Hat registry"
+        required: true
+      GHCR_TOKEN:
+        description: "Token to access the GitHub Container Registry"
+        required: true
+    inputs:
+      tag:
+        description: "Tag to apply to the built execution environment"
+        required: false
+        type: string
+        default: "latest"
+      environments:
+        required: false
+        type: string
+        default: ""
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: "${{ steps.setup.outputs.matrix }}"
+    steps:
+      - name: "Set up environments"
+        id: setup
+        run: echo "matrix=$(echo '${{ inputs.environments }}' | jq -R -s -c 'split(",")')" >> $GITHUB_OUTPUT
+
+  build:
+    needs: [prepare]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v2
+
+      - name: "Echo out the environment"
+        run: echo "Building ${{ matrix.environment }}"
+
+      - name: "Install dependencies required for builder"
+        run: pip install -r requirements.txt
+
+      - name: "Authenticate to registry.redhat.io"
+        uses: docker/login-action@v3
+        with:
+          registry: registry.redhat.io
+          username: ${{ secrets.REDHAT_REGISTRY_USERNAME }}
+          password: ${{ secrets.REDHAT_REGISTRY_PASSWORD }}
+
+      - name: "Build the execution environment"
+        run: |
+          environment=$(echo "${{ matrix.environment }}" | xargs)
+          cd environments/$environment
+          ansible-builder build -v 3 \
+            --context="." \
+            --file="execution-environment.yaml" \
+            --tag="ee-$environment:${{ inputs.tag }}" \
+            --tag="ee-$environment:${{ github.sha }}"
+
+      - name: "Push the execution environment to the GitHub Container Registry"
+        uses: "redhat-actions/push-to-registry@v2"
+        with:
+          image: "ee-${{ matrix.environment }}"
+          tags: |
+            ${{ inputs.tag }}
+            ${{ github.sha }}
+          registry: "ghcr.io/nickarellano"
+          username: "${{ github.actor }}"
+          password: "${{ secrets.GHCR_TOKEN }}"

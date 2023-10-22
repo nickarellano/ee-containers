@@ -1,0 +1,62 @@
+---
+name: "Render README.md"
+
+on:
+  workflow_dispatch:
+    secrets:
+      GHCR_TOKEN:
+        description: "Token to access the GitHub Container Registry"
+        required: true
+      BOT_APP_ID:
+        description: "ID of the GitHub App"
+        required: true
+      BOT_APP_PRIVATE_KEY:
+        description: "Private key for the GitHub App"
+        required: true
+  workflow_call:
+    secrets:
+      GHCR_TOKEN:
+        description: "Token to access the GitHub Container Registry"
+        required: true
+      BOT_APP_ID:
+        description: "ID of the GitHub App"
+        required: true
+      BOT_APP_PRIVATE_KEY:
+        description: "Private key for the GitHub App"
+        required: true
+
+jobs:
+  render-readme:
+    name: "Render README.md"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Setup python"
+        uses: actions/setup-python@v4
+
+      - name: "Install dependencies"
+        run: |
+          pip install -r ./.github/scripts/requirements.txt && pip freeze
+
+      - name: "Generate bot token"
+        uses: tibdex/github-app-token@v2
+        id: generate-token
+        with:
+          app_id: "${{ secrets.BOT_APP_ID }}"
+          private_key: "${{ secrets.BOT_APP_PRIVATE_KEY }}"
+
+      - name: "Render README.md"
+        env:
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+        run: |
+          python ./.github/scripts/render-readme.py
+
+      - name: "Commit changes"
+        run: |
+          git config --global user.name "auto-matey[bot]"
+          git config --global user.email "411957+auto-matey[bot]@users.noreply.github.com"
+          git add ./README.md
+          git commit -m "docs: update README.md" || echo "No changes to commit"
+          git push origin || echo "No changes to push"

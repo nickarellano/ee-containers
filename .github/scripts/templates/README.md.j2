@@ -1,0 +1,15 @@
+<div align="center">
+    <h1>Execution Environments</h1>
+    <strong>
+    An suite of Ansible execution environments, utilized for demonstration and testing purposes
+    </strong><br><br>
+</div>
+<hr>
+<div align="center">
+
+Container | image | Latest Tags
+---|---|---
+{% for environment in environments | sort(attribute="name") -%}
+[{{ environment.name }}]( https://ghcr.io/nickarellano/{{ environment.name }} ) | ghcr.io/nickarellano/{{ environment.name }} | {{ environment.tag }}
+{% endfor %}
+</div>
