@@ -9,7 +9,7 @@
 
 Container | image | Latest Tags
 ---|---|---
-[netbox]( https://ghcr.io/nickarellano/ee-netbox ) | ghcr.io/nickarellano/ee-netbox | e165a76f4040b15e0c547f51f790660329ec79ab
+[netbox]( https://ghcr.io/nickarellano/ee-netbox ) | ghcr.io/nickarellano/ee-netbox | bb70f5d2056ee5ca87a28debb98afe4029c6349c
 [network]( https://ghcr.io/nickarellano/ee-network ) | ghcr.io/nickarellano/ee-network | f880b0ebc28e83740938bcafea6a24a00c94bc76
 [servicenow]( https://ghcr.io/nickarellano/ee-servicenow ) | ghcr.io/nickarellano/ee-servicenow | a3ecdd1d224e19816f2d02bfc54ab5332d6d51d2
 [vmware]( https://ghcr.io/nickarellano/ee-vmware ) | ghcr.io/nickarellano/ee-vmware | f880b0ebc28e83740938bcafea6a24a00c94bc76
