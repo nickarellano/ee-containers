@@ -1,0 +1,18 @@
+---
+collections:
+  - name: amazon.aws
+    version: 6.5.0
+  - name: azure.azcollection
+    version: 1.18.1
+  - name: community.aws
+    version: 6.3.0
+  - name: community.digitalocean
+    version: 1.24.0
+  - name: google.cloud
+    version: 1.2.0
+  - name: hetzner.hcloud
+    version: 1.16.0
+  - name: kubernetes.core
+    version: 2.4.0
+  - name: vultr.cloud
+    version: 1.10.0
