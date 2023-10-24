@@ -25,9 +25,9 @@ def get_folder_names(directory: str) -> List[str]:
 
 def get_headers() -> dict:
     """Return the headers for the requests.get call."""
-    token = os.getenv("GITHUB_TOKEN")
+    token = os.getenv("GHCR_TOKEN")
     if not token:
-        raise ValueError("Missing environment variable: GITHUB_TOKEN")
+        raise ValueError("Missing environment variable: GHCR_TOKEN")
     return {
         "Accept": "application/vnd.github.v3+json",
         "Authorization": f"token {token}",
