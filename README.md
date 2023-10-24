@@ -7,7 +7,7 @@
 <hr>
 <div align="center">
 
-Container | image | Latest Tags
+Container | Image | Latest Tags
 ---|---|---
 [cloud]( https://ghcr.io/nickarellano/ee-cloud ) | ghcr.io/nickarellano/ee-cloud | 0290f0f70794bddcd60a721335d6ea0ff8f1e754
 [general]( https://ghcr.io/nickarellano/ee-general ) | ghcr.io/nickarellano/ee-general | 065798ed74fa3174081dd70a63ad8212658aeb1d
