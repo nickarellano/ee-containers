@@ -7,7 +7,7 @@
 <hr>
 <div align="center">
 
-Container | image | Latest Tags
+Container | Image | Latest Tags
 ---|---|---
 {% for environment in environments | sort(attribute="name") -%}
 [{{ environment.name }}]( https://ghcr.io/nickarellano/ee-{{ environment.name }} ) | ghcr.io/nickarellano/ee-{{ environment.name }} | {{ environment.tag }}
