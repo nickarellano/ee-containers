@@ -12,3 +12,4 @@ PyGithub
 python-gitlab
 python-memcached
 redis
+websocket-client >= 1.0.0
