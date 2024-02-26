@@ -1,2 +1,5 @@
 __pycache__
 context/
+Dockerfile
+_build
+Containerfile
