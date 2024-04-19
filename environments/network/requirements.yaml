@@ -8,6 +8,8 @@ collections:
     version: 2.10.3
   - name: arista.eos
     version: 6.0.1
+  - name: cisco.aci
+    version: 2.9.0
   - name: cisco.asa
     version: 4.0.1
   - name: cisco.ios
