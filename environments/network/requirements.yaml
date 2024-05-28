@@ -21,12 +21,12 @@ collections:
   - name: community.network
     version: 5.0.0
   - name: community.routeros
-    version: 2.11.0
+    version: 2.15.0
   - name: frr.frr
     version: 2.0.2
   - name: junipernetworks.junos
     version: 5.2.0
   - name: pfsensible.core
-    version: 0.6.0
+    version: 0.6.1
   - name: vyos.vyos
     version: 4.1.0
