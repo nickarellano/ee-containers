@@ -1,6 +1,0 @@
----
-collections:
-  - name: community.vmware
-    version: 3.8.0
-  - name: vmware.vmware_rest
-    version: 2.3.1
