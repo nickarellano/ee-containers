@@ -15,7 +15,7 @@ Container | Image | Latest Tags
 [network]( https://ghcr.io/nickarellano/ee-network ) | ghcr.io/nickarellano/ee-network | 7da5191db9877fab738eea8371e2ccdbc7d94307
 [servicenow]( https://ghcr.io/nickarellano/ee-servicenow ) | ghcr.io/nickarellano/ee-servicenow | a3ecdd1d224e19816f2d02bfc54ab5332d6d51d2
 [terraform]( https://ghcr.io/nickarellano/ee-terraform ) | ghcr.io/nickarellano/ee-terraform | 179da7de4f905daa7b4e49b000358629971ddfef
-[vmware]( https://ghcr.io/nickarellano/ee-vmware ) | ghcr.io/nickarellano/ee-vmware | f880b0ebc28e83740938bcafea6a24a00c94bc76
+[vmware]( https://ghcr.io/nickarellano/ee-vmware ) | ghcr.io/nickarellano/ee-vmware | a2fabc024cfa2d111528ada73d2c461950b4b3b2
 [windows]( https://ghcr.io/nickarellano/ee-windows ) | ghcr.io/nickarellano/ee-windows | f880b0ebc28e83740938bcafea6a24a00c94bc76
 
 </div>
