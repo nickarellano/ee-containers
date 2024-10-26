@@ -16,7 +16,7 @@ dependencies:
       - { name: community.windows, version: 2.3.0 }
       - { name: microsoft.ad, version: 1.7.1 }
   python:
-    - requests-credssp > 2.2.0
+    - requests-credssp>=2.0.0,<3.0.0
 
 options:
   package_manager_path: /usr/bin/microdnf
