@@ -9,6 +9,8 @@ dependencies:
   galaxy:
     collections:
       - { name: netbox.netbox, version: 3.21.0 }
+  python:
+    - pynetbox==7.5.0
 
 options:
   package_manager_path: /usr/bin/microdnf
