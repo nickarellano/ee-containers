@@ -8,13 +8,15 @@ images:
 dependencies:
   galaxy:
     collections:
-      - { name: ansible.utils, version: 5.1.2 }
-      - { name: community.vmware, version: 5.0.1 }
-      - { name: vmware.vmware_rest, version: 4.1.0 }
+      - { name: ansible.utils, version: 6.0.0 }
+      - { name: community.vmware, version: 5.7.0 }
+      - { name: vmware.vmware_rest, version: 4.7.0 }
+      - { name: vmware.vmware, version: 2.1.0 }
   python:
-    - aiohttp==3.8.5
-    - pyVmomi>=6.7
-    - git+https://github.com/vmware/vsphere-automation-sdk-python.git ; python_version >= '2.7' # Python 2.6 is not supported
+    - aiohttp
+    - pyVmomi>=8.0.3.0.1
+    - vmware-vapi-common-client
+    - vmware-vcenter
 
 options:
   package_manager_path: /usr/bin/microdnf
