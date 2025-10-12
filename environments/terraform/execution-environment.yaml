@@ -3,12 +3,12 @@ version: 3
 
 images:
   base_image:
-    name: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest
+    name: registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel9:latest
 
 dependencies:
   galaxy:
     collections:
-      - { name: cloud.terraform, version: 3.0.0 }
+      - { name: cloud.terraform, version: 4.0.0 }
 
 additional_build_steps:
   prepend_final:
