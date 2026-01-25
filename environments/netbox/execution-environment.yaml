@@ -10,8 +10,9 @@ dependencies:
     collections:
       - { name: netbox.netbox, version: 3.21.0 }
   python:
-    - pynetbox
+    - jmespath
     - packaging
+    - pynetbox
     - pytz
 
 options:
